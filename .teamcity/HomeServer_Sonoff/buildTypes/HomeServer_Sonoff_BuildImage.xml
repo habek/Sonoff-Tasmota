@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="f37ca614-8d04-45c2-96ab-4ef5a335cc56" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2018.1/project-config.xsd">
+  <name>Build image</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value="**/firmware.bin" />
+    </options>
+    <parameters>
+      <param name="wifi_pass" value="credentialsJSON:f5bfac7c-4584-41a5-b64b-bc8975f00b13" spec="password display='hidden'" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_28" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[cls
+echo #ifndef _USER_CONFIG_OVERRIDE_H_ > sonoff\user_config_override.h
+echo #define _USER_CONFIG_OVERRIDE_H_ >> sonoff\user_config_override.h
+
+echo #undef STA_SSID1 >> sonoff\user_config_override.h
+echo #define STA_SSID1 "H_DOM" >> sonoff\user_config_override.h
+
+echo #undef STA_PASS1 >> sonoff\user_config_override.h
+echo #define STA_PASS1 "%wifi_pass%" >> sonoff\user_config_override.h
+
+echo #undef MQTT_HOST >> sonoff\user_config_override.h
+echo #define MQTT_HOST "mqtt.dom" >> sonoff\user_config_override.h
+
+echo #undef SYS_LOG_HOST >> sonoff\user_config_override.h
+echo #define SYS_LOG_HOST "SYSLOG.DOM" >> sonoff\user_config_override.h
+
+echo #undef SYS_LOG_LEVEL >> sonoff\user_config_override.h
+echo #define SYS_LOG_LEVEL LOG_LEVEL_DEBUG >> sonoff\user_config_override.h
+
+echo #undef USE_DOMOTICZ >> sonoff\user_config_override.h
+echo #undef USE_HOME_ASSISTANT >> sonoff\user_config_override.h
+echo #undef USE_KNX >> sonoff\user_config_override.h
+echo #undef USE_KNX_WEB_MENU >> sonoff\user_config_override.h
+echo #undef USE_DISCOVERY >> sonoff\user_config_override.h
+echo #undef USE_WS2812 >> sonoff\user_config_override.h
+echo #undef USE_MY92X1 >> sonoff\user_config_override.h
+echo #undef USE_SM16716 >> sonoff\user_config_override.h
+echo #undef USE_SM2135 >> sonoff\user_config_override.h
+
+
+
+echo #endif  // _USER_CONFIG_OVERRIDE_H_ >> sonoff\user_config_override.h
+
+
+set "PLATFORMIO_BUILD_FLAGS=-DUSE_CONFIG_OVERRIDE"
+platformio.exe run --environment sonoff]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="HomeServer_Sonoff_GitGithubComHabekSonoffTasmotaGit" />
+    </vcs-settings>
+    <requirements />
+    <build-triggers />
+    <cleanup />
+  </settings>
+</build-type>
+
