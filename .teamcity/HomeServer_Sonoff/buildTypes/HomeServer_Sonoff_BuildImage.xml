@@ -85,7 +85,15 @@ platformio.exe run --environment sonoff --environment sonoff-ircustom --environm
       <vcs-entry-ref root-id="HomeServer_Sonoff_GitGithubComHabekSonoffTasmotaGit" />
     </vcs-settings>
     <requirements />
-    <build-triggers />
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="enableQueueOptimization" value="true" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
     <cleanup />
   </settings>
 </build-type>
