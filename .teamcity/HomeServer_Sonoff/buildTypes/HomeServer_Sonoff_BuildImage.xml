@@ -22,6 +22,12 @@ echo #define STA_SSID1 "H_DOM" >> sonoff\user_config_override.h
 echo #undef STA_PASS1 >> sonoff\user_config_override.h
 echo #define STA_PASS1 "%wifi_pass%" >> sonoff\user_config_override.h
 
+echo #undef STA_SSID2 >> sonoff\user_config_override.h
+echo #define STA_SSID2 "H_DOM_" >> sonoff\user_config_override.h
+
+echo #undef STA_PASS2 >> sonoff\user_config_override.h
+echo #define STA_PASS2 "%wifi_pass%" >> sonoff\user_config_override.h
+
 echo #undef MQTT_HOST >> sonoff\user_config_override.h
 echo #define MQTT_HOST "mqtt.dom" >> sonoff\user_config_override.h
 
