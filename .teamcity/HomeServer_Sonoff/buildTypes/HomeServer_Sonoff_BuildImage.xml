@@ -47,7 +47,7 @@ echo #endif  // _USER_CONFIG_OVERRIDE_H_ >> sonoff\user_config_override.h
 
 
 set "PLATFORMIO_BUILD_FLAGS=-DUSE_CONFIG_OVERRIDE"
-platformio.exe run --environment sonoff]]></param>
+platformio.exe run --environment sonoff --environment sonoff-ircustom --environment sonoff-sensors]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
