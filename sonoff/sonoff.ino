@@ -789,7 +789,7 @@ void PerformEverySecond(void)
     RtcReboot.fast_reboot_count = 0;
     RtcRebootSave();
 
-    Settings.bootcount++;              // Moved to here to stop flash writes during start-up
+    // Settings.bootcount++;              // Moved to here to stop flash writes during start-up
     AddLog_P2(LOG_LEVEL_DEBUG, PSTR(D_LOG_APPLICATION D_BOOT_COUNT " %d"), Settings.bootcount);
   }
 
