@@ -37,6 +37,13 @@ echo #define SYS_LOG_HOST "SYSLOG.DOM" >> tasmota\user_config_override.h
 echo #undef SYS_LOG_LEVEL >> tasmota\user_config_override.h
 echo #define SYS_LOG_LEVEL LOG_LEVEL_DEBUG >> tasmota\user_config_override.h
 
+echo #undef MQTT_GRPTOPIC >> tasmota\user_config_override.h
+echo #define MQTT_GRPTOPIC "sonoffs" >> tasmota\user_config_override.h
+
+echo #undef MQTT_TOPIC >> tasmota\user_config_override.h
+echo #define MQTT_TOPIC "sonoff" >> tasmota\user_config_override.h
+
+
 echo #undef USE_DOMOTICZ >> tasmota\user_config_override.h
 echo #undef USE_HOME_ASSISTANT >> tasmota\user_config_override.h
 echo #undef USE_KNX >> tasmota\user_config_override.h
