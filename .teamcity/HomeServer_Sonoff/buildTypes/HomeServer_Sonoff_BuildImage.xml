@@ -46,6 +46,7 @@ echo #define MQTT_TOPIC "sonoff" >> tasmota\user_config_override.h
 
 echo #undef USE_DOMOTICZ >> tasmota\user_config_override.h
 echo #undef USE_HOME_ASSISTANT >> tasmota\user_config_override.h
+echo #define USE_HOME_ASSISTANT >> tasmota\user_config_override.h
 echo #undef USE_KNX >> tasmota\user_config_override.h
 echo #undef USE_KNX_WEB_MENU >> tasmota\user_config_override.h
 echo #undef USE_EMULATION_HUE >> tasmota\user_config_override.h
