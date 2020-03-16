@@ -54,11 +54,11 @@ echo #undef USE_DISCOVERY >> tasmota\user_config_override.h
 echo #undef USE_TIMERS >> tasmota\user_config_override.h
 echo #undef USE_RULES >> tasmota\user_config_override.h
 echo #undef USE_SONOFF_RF >> tasmota\user_config_override.h
-echo #define USE_SONOFF_RF >> tasmota\user_config_override.h
 echo #undef USE_SONOFF_SC >> tasmota\user_config_override.h
 echo #undef USE_TUYA_MCU >> tasmota\user_config_override.h
 echo #undef USE_ARMTRONIX_DIMMERS >> tasmota\user_config_override.h
 echo #undef USE_PS_16_DZ >> tasmota\user_config_override.h
+echo #undef USE_SONOFF_IFAN >> tasmota\user_config_override.h
 echo #undef USE_BUZZER >> tasmota\user_config_override.h
 echo #undef USE_ARILUX_RF >> tasmota\user_config_override.h
 
@@ -68,13 +68,18 @@ echo #undef USE_SM16716 >> tasmota\user_config_override.h
 echo #undef USE_SM2135 >> tasmota\user_config_override.h
 echo #undef USE_SONOFF_L1 >> tasmota\user_config_override.h
 
+echo #undef USE_COUNTER >> tasmota\user_config_override.h
+echo #undef USE_DS18x20 >> tasmota\user_config_override.h
+
 echo #undef USE_SHT >> tasmota\user_config_override.h
+echo #undef USE_HTU >> tasmota\user_config_override.h
 echo #undef USE_BMP >> tasmota\user_config_override.h
 echo #undef USE_BH1750 >> tasmota\user_config_override.h
 echo #undef USE_SHT3X >> tasmota\user_config_override.h
 echo #undef USE_LM75AD >> tasmota\user_config_override.h
 echo #undef USE_ADE7953 >> tasmota\user_config_override.h
 
+echo #undef USE_SPI >> tasmota\user_config_override.h
 echo #undef USE_HX711 >> tasmota\user_config_override.h
 echo #undef USE_ADE7953 >> tasmota\user_config_override.h
 echo #undef USE_DISPLAY_MODES1TO5 >> tasmota\user_config_override.h
@@ -82,6 +87,26 @@ echo #undef USE_DISPLAY_LCD >> tasmota\user_config_override.h
 echo #undef USE_DISPLAY_SSD1306 >> tasmota\user_config_override.h
 echo #undef USE_DISPLAY_MATRIX >> tasmota\user_config_override.h
 
+echo #undef USE_MHZ19 >> tasmota\user_config_override.h
+echo #undef USE_SENSEAIR >> tasmota\user_config_override.h
+echo #undef USE_PMS5003 >> tasmota\user_config_override.h
+echo #undef USE_NOVA_SDS >> tasmota\user_config_override.h
+
+echo #undef USE_SERIAL_BRIDGE >> tasmota\user_config_override.h
+
+echo #undef USE_ENERGY_MARGIN_DETECTION >> tasmota\user_config_override.h
+echo #undef USE_PZEM004T >> tasmota\user_config_override.h
+echo #undef USE_PZEM_DC >> tasmota\user_config_override.h
+echo #undef USE_PZEM_AC >> tasmota\user_config_override.h
+echo #undef USE_MCP39F501 >> tasmota\user_config_override.h
+
+echo #undef USE_SR04 >> tasmota\user_config_override.h
+echo #undef USE_ZIGBEE >> tasmota\user_config_override.h
+echo #undef USE_MQTT_TLS >> tasmota\user_config_override.h
+
+::// Add support for DHT11, AM2301 (DHT21, DHT22, AM2302, AM2321) and SI7021 Temperature and Humidity sensor (1k6 code)
+echo #define USE_DHT >> tasmota\user_config_override.h
+echo #define USE_SONOFF_RF >> tasmota\user_config_override.h
 
 
 echo #endif  // _USER_CONFIG_OVERRIDE_H_ >> tasmota\user_config_override.h
