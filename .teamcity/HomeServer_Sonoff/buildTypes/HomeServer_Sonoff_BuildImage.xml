@@ -17,13 +17,13 @@ echo #ifndef _USER_CONFIG_OVERRIDE_H_ > tasmota\user_config_override.h
 echo #define _USER_CONFIG_OVERRIDE_H_ >> tasmota\user_config_override.h
 
 echo #undef STA_SSID1 >> tasmota\user_config_override.h
-echo #define STA_SSID1 "H_DOM" >> tasmota\user_config_override.h
+echo #define STA_SSID1 "H_DOM_" >> tasmota\user_config_override.h
 
 echo #undef STA_PASS1 >> tasmota\user_config_override.h
 echo #define STA_PASS1 "%wifi_pass%" >> tasmota\user_config_override.h
 
 echo #undef STA_SSID2 >> tasmota\user_config_override.h
-echo #define STA_SSID2 "H_DOM_" >> tasmota\user_config_override.h
+echo #define STA_SSID2 "H_DOM" >> tasmota\user_config_override.h
 
 echo #undef STA_PASS2 >> tasmota\user_config_override.h
 echo #define STA_PASS2 "%wifi_pass%" >> tasmota\user_config_override.h
