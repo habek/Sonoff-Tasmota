@@ -113,7 +113,8 @@ echo #endif  // _USER_CONFIG_OVERRIDE_H_ >> tasmota\user_config_override.h
 
 
 set "PLATFORMIO_BUILD_FLAGS=-DUSE_CONFIG_OVERRIDE"
-platformio.exe run --environment tasmota --environment tasmota-sensors --environment tasmota-ir --environment tasmota-minimal]]></param>
+#platformio.exe run --environment tasmota --environment tasmota-sensors --environment tasmota-ir --environment tasmota-minimal
+platformio.exe run --environment tasmota --environment tasmota-minimal]]></param>
           <param name="teamcity.step.mode" value="default" />
           <param name="use.custom.script" value="true" />
         </parameters>
