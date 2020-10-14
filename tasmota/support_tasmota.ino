@@ -793,7 +793,7 @@ void PerformEverySecond(void)
 #ifdef USE_DEEPSLEEP
     if (!(DeepSleepEnabled() && !Settings.flag3.bootcount_update)) {
 #endif
-      Settings.bootcount++;              // Moved to here to stop flash writes during start-up
+      // Settings.bootcount++;              // Moved to here to stop flash writes during start-up
       AddLog_P2(LOG_LEVEL_DEBUG, PSTR(D_LOG_APPLICATION D_BOOT_COUNT " %d"), Settings.bootcount);
 #ifdef USE_DEEPSLEEP
     }

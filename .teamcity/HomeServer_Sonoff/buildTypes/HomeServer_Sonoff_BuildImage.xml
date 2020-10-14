@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="f37ca614-8d04-45c2-96ab-4ef5a335cc56" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2020.1/project-config.xsd">
+  <name>Build image</name>
+  <description />
+  <settings>
+    <options>
+      <option name="artifactRules" value=".pioenvs/**/firmware.bin" />
+    </options>
+    <parameters>
+      <param name="wifi_pass" value="credentialsJSON:f5bfac7c-4584-41a5-b64b-bc8975f00b13" spec="password display='hidden'" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_28" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[cls
+echo #ifndef _USER_CONFIG_OVERRIDE_H_ > tasmota\user_config_override.h
+echo #define _USER_CONFIG_OVERRIDE_H_ >> tasmota\user_config_override.h
+
+echo #undef STA_SSID1 >> tasmota\user_config_override.h
+echo #define STA_SSID1 "H_DOM_" >> tasmota\user_config_override.h
+
+echo #undef STA_PASS1 >> tasmota\user_config_override.h
+echo #define STA_PASS1 "%wifi_pass%" >> tasmota\user_config_override.h
+
+echo #undef STA_SSID2 >> tasmota\user_config_override.h
+echo #define STA_SSID2 "H_DOM" >> tasmota\user_config_override.h
+
+echo #undef STA_PASS2 >> tasmota\user_config_override.h
+echo #define STA_PASS2 "%wifi_pass%" >> tasmota\user_config_override.h
+
+echo #undef MQTT_HOST >> tasmota\user_config_override.h
+echo #define MQTT_HOST "mqtt.dom" >> tasmota\user_config_override.h
+
+echo #undef SYS_LOG_HOST >> tasmota\user_config_override.h
+echo #define SYS_LOG_HOST "SYSLOG.DOM" >> tasmota\user_config_override.h
+
+echo #undef SYS_LOG_LEVEL >> tasmota\user_config_override.h
+echo #define SYS_LOG_LEVEL LOG_LEVEL_DEBUG >> tasmota\user_config_override.h
+
+echo #undef MQTT_GRPTOPIC >> tasmota\user_config_override.h
+echo #define MQTT_GRPTOPIC "sonoffs" >> tasmota\user_config_override.h
+
+echo #undef MQTT_TOPIC >> tasmota\user_config_override.h
+echo #define MQTT_TOPIC "sonoff" >> tasmota\user_config_override.h
+
+
+echo #undef USE_DOMOTICZ >> tasmota\user_config_override.h
+echo #undef USE_HOME_ASSISTANT >> tasmota\user_config_override.h
+echo #undef USE_KNX >> tasmota\user_config_override.h
+echo #undef USE_KNX_WEB_MENU >> tasmota\user_config_override.h
+echo #undef USE_EMULATION_HUE >> tasmota\user_config_override.h
+echo #undef USE_EMULATION_WEMO >> tasmota\user_config_override.h
+echo #undef USE_DISCOVERY >> tasmota\user_config_override.h
+echo #undef USE_TIMERS >> tasmota\user_config_override.h
+echo #undef USE_RULES >> tasmota\user_config_override.h
+echo #undef USE_SONOFF_RF >> tasmota\user_config_override.h
+echo #undef USE_SONOFF_SC >> tasmota\user_config_override.h
+echo #undef USE_TUYA_MCU >> tasmota\user_config_override.h
+echo #undef USE_ARMTRONIX_DIMMERS >> tasmota\user_config_override.h
+echo #undef USE_PS_16_DZ >> tasmota\user_config_override.h
+echo #undef USE_SONOFF_IFAN >> tasmota\user_config_override.h
+echo #undef USE_BUZZER >> tasmota\user_config_override.h
+echo #undef USE_ARILUX_RF >> tasmota\user_config_override.h
+
+echo #undef USE_WS2812 >> tasmota\user_config_override.h
+echo #undef USE_MY92X1 >> tasmota\user_config_override.h
+echo #undef USE_SM16716 >> tasmota\user_config_override.h
+echo #undef USE_SM2135 >> tasmota\user_config_override.h
+echo #undef USE_SONOFF_L1 >> tasmota\user_config_override.h
+
+echo #undef USE_COUNTER >> tasmota\user_config_override.h
+echo #undef USE_DS18x20 >> tasmota\user_config_override.h
+
+echo #undef USE_SHT >> tasmota\user_config_override.h
+echo #undef USE_HTU >> tasmota\user_config_override.h
+echo #undef USE_BMP >> tasmota\user_config_override.h
+echo #undef USE_BH1750 >> tasmota\user_config_override.h
+echo #undef USE_SHT3X >> tasmota\user_config_override.h
+echo #undef USE_LM75AD >> tasmota\user_config_override.h
+echo #undef USE_ADE7953 >> tasmota\user_config_override.h
+
+echo #undef USE_SPI >> tasmota\user_config_override.h
+echo #undef USE_HX711 >> tasmota\user_config_override.h
+echo #undef USE_ADE7953 >> tasmota\user_config_override.h
+echo #undef USE_DISPLAY_MODES1TO5 >> tasmota\user_config_override.h
+echo #undef USE_DISPLAY_LCD >> tasmota\user_config_override.h
+echo #undef USE_DISPLAY_SSD1306 >> tasmota\user_config_override.h
+echo #undef USE_DISPLAY_MATRIX >> tasmota\user_config_override.h
+
+echo #undef USE_MHZ19 >> tasmota\user_config_override.h
+echo #undef USE_SENSEAIR >> tasmota\user_config_override.h
+echo #undef USE_PMS5003 >> tasmota\user_config_override.h
+echo #undef USE_NOVA_SDS >> tasmota\user_config_override.h
+
+echo #undef USE_SERIAL_BRIDGE >> tasmota\user_config_override.h
+
+echo #undef USE_ENERGY_MARGIN_DETECTION >> tasmota\user_config_override.h
+echo #undef USE_PZEM004T >> tasmota\user_config_override.h
+echo #undef USE_PZEM_DC >> tasmota\user_config_override.h
+echo #undef USE_PZEM_AC >> tasmota\user_config_override.h
+echo #undef USE_MCP39F501 >> tasmota\user_config_override.h
+
+echo #undef USE_SR04 >> tasmota\user_config_override.h
+echo #undef USE_ZIGBEE >> tasmota\user_config_override.h
+echo #undef USE_MQTT_TLS >> tasmota\user_config_override.h
+
+::// Add support for DHT11, AM2301 (DHT21, DHT22, AM2302, AM2321) and SI7021 Temperature and Humidity sensor (1k6 code)
+echo #define USE_DHT >> tasmota\user_config_override.h
+echo #define USE_SONOFF_RF >> tasmota\user_config_override.h
+
+
+echo #endif  // _USER_CONFIG_OVERRIDE_H_ >> tasmota\user_config_override.h
+
+
+set "PLATFORMIO_BUILD_FLAGS=-DUSE_CONFIG_OVERRIDE"
+#platformio.exe run --environment tasmota --environment tasmota-sensors --environment tasmota-ir --environment tasmota-minimal
+platformio.exe run --environment tasmota --environment tasmota-minimal]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="HomeServer_Sonoff_GitGithubComHabekSonoffTasmotaGit" />
+    </vcs-settings>
+    <requirements />
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="branchFilter" value="+:*" />
+          <param name="enableQueueOptimization" value="true" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <cleanup />
+  </settings>
+</build-type>
+
