@@ -4,7 +4,7 @@
   <description />
   <settings>
     <options>
-      <option name="artifactRules" value=".pioenvs/**/firmware.bin" />
+      <option name="artifactRules" value="**/firmware.bin" />
     </options>
     <parameters>
       <param name="wifi_pass" value="credentialsJSON:f5bfac7c-4584-41a5-b64b-bc8975f00b13" spec="password display='hidden'" />
